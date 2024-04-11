@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func yaapExpandVariables(ctx android.ModuleContext, in string) string {
-	yaapVars := ctx.Config().VendorConfig("yaapVarsPlugin")
+func naapExpandVariables(ctx android.ModuleContext, in string) string {
+	naapVars := ctx.Config().VendorConfig("naapVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if yaapVars.IsSet(name) {
-			return yaapVars.String(name), nil
+		if naapVars.IsSet(name) {
+			return naapVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

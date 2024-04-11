@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/yaap_arm.mk \
-    $(LOCAL_DIR)/yaap_arm64.mk \
-    $(LOCAL_DIR)/yaap_x86.mk \
-    $(LOCAL_DIR)/yaap_x86_64.mk
+    $(LOCAL_DIR)/naap_arm.mk \
+    $(LOCAL_DIR)/naap_arm64.mk \
+    $(LOCAL_DIR)/naap_x86.mk \
+    $(LOCAL_DIR)/naap_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    yaap_arm-userdebug \
-    yaap_arm64-userdebug \
-    yaap_x86-userdebug \
-    yaap_x86_64-userdebug
+    naap_arm-userdebug \
+    naap_arm64-userdebug \
+    naap_x86-userdebug \
+    naap_x86_64-userdebug

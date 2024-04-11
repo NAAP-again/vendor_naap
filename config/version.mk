@@ -1,4 +1,4 @@
-# Copyright (C) 2020 YAAP
+# Copyright (C) 2020 NAAP
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,29 +14,29 @@
 
 # Versioning System
 BUILD_DATE := $(shell date +%Y%m%d)
-TARGET_PRODUCT_SHORT := $(subst yaap_,,$(YAAP_BUILD))
+TARGET_PRODUCT_SHORT := $(subst naap_,,$(NAAP_BUILD))
 
-YAAP_BUILDTYPE ?= HOMEMADE
-YAAP_BUILD_VERSION := $(PLATFORM_VERSION)
-YAAP_VERSION := $(YAAP_BUILD_VERSION)-$(YAAP_BUILDTYPE)-$(TARGET_PRODUCT_SHORT)-$(BUILD_DATE)
-ROM_FINGERPRINT := YAAP/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
+NAAP_BUILDTYPE ?= HOMEMADE
+NAAP_BUILD_VERSION := $(PLATFORM_VERSION)
+NAAP_VERSION := $(NAAP_BUILD_VERSION)-$(NAAP_BUILDTYPE)-$(TARGET_PRODUCT_SHORT)-$(BUILD_DATE)
+ROM_FINGERPRINT := NAAP/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.yaap.build.version=$(YAAP_BUILD_VERSION) \
-  ro.yaap.build.date=$(BUILD_DATE) \
-  ro.yaap.buildtype=$(YAAP_BUILDTYPE) \
-  ro.yaap.fingerprint=$(ROM_FINGERPRINT) \
-  ro.yaap.version=$(YAAP_VERSION) \
-  ro.yaap.device=$(YAAP_BUILD) \
-  ro.modversion=$(YAAP_VERSION)
+  ro.naap.build.version=$(NAAP_BUILD_VERSION) \
+  ro.naap.build.date=$(BUILD_DATE) \
+  ro.naap.buildtype=$(NAAP_BUILDTYPE) \
+  ro.naap.fingerprint=$(ROM_FINGERPRINT) \
+  ro.naap.version=$(NAAP_VERSION) \
+  ro.naap.device=$(NAAP_BUILD) \
+  ro.modversion=$(NAAP_VERSION)
 
 # Signing
 ifneq (eng,$(TARGET_BUILD_VARIANT))
-ifneq (,$(wildcard vendor/yaap/signing/keys/releasekey.pk8))
-PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/yaap/signing/keys/releasekey
+ifneq (,$(wildcard vendor/naap/signing/keys/releasekey.pk8))
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/naap/signing/keys/releasekey
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.oem_unlock_supported=1
 endif
-ifneq (,$(wildcard vendor/yaap/signing/keys/otakey.x509.pem))
-PRODUCT_OTA_PUBLIC_KEYS := vendor/yaap/signing/keys/otakey.x509.pem
+ifneq (,$(wildcard vendor/naap/signing/keys/otakey.x509.pem))
+PRODUCT_OTA_PUBLIC_KEYS := vendor/naap/signing/keys/otakey.x509.pem
 endif
 endif

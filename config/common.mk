@@ -28,8 +28,8 @@ endif
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Copy all YAAP-specific init rc files
-$(foreach f,$(wildcard vendor/yaap/prebuilt/common/etc/init/*.rc),\
+# Copy all NAAP-specific init rc files
+$(foreach f,$(wildcard vendor/naap/prebuilt/common/etc/init/*.rc),\
     $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
 # Don't compile SystemUITests
@@ -52,12 +52,12 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := art/build/boot/boot-image-prof
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/yaap/prebuilt/common/etc/permissions/yaap-privapp-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/yaap-privapp-permissions.xml \
-    vendor/yaap/prebuilt/common/etc/permissions/yaap-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/yaap-power-whitelist.xml
+    vendor/naap/prebuilt/common/etc/permissions/naap-privapp-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/naap-privapp-permissions.xml \
+    vendor/naap/prebuilt/common/etc/permissions/naap-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/naap-power-whitelist.xml
 
 # Cloned app exemption
 PRODUCT_COPY_FILES += \
-    vendor/yaap/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-yaap-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-yaap-product.xml
+    vendor/naap/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-naap-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-naap-product.xml
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
-    vendor/yaap/prebuilt/common/etc/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+    vendor/naap/prebuilt/common/etc/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
 
 # Strip the local variable table and the local variable type table to reduce
 # the size of the system image. This has no bearing on stack traces, but will
@@ -79,13 +79,13 @@ SYSTEM_OPTIMIZE_JAVA ?= true
 SYSTEMUI_OPTIMIZE_JAVA ?= true
 
 # Product overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/yaap/overlay
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/yaap/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/naap/overlay
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/naap/overlay
 ifneq ($(TARGET_BUILD_GAPPS),true)
-PRODUCT_PACKAGE_OVERLAYS += vendor/yaap/overlay-vanilla
+PRODUCT_PACKAGE_OVERLAYS += vendor/naap/overlay-vanilla
 endif
 PRODUCT_COPY_FILES += \
-    vendor/yaap/overlay/partition_order.xml:$(TARGET_COPY_OUT_PRODUCT)/overlay/partition_order.xml
+    vendor/naap/overlay/partition_order.xml:$(TARGET_COPY_OUT_PRODUCT)/overlay/partition_order.xml
 
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
@@ -100,10 +100,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.input.video_enabled=false
 
 # Packages
-include vendor/yaap/config/packages.mk
+include vendor/naap/config/packages.mk
 
 # Versioning
-include vendor/yaap/config/version.mk
+include vendor/naap/config/version.mk
 
 # ART
 # Speed optimize everything for preopt
@@ -168,7 +168,7 @@ PRODUCT_HOST_PACKAGES += \
 $(call inherit-product, vendor/themes/common.mk)
 
 # Sepolicy
-$(call inherit-product, vendor/yaap/config/sepolicy.mk)
+$(call inherit-product, vendor/naap/config/sepolicy.mk)
 
 # Virtualization
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)

@@ -17,12 +17,12 @@ EXPORT_TO_SOONG := \
 # Documentation here:
 # https://github.com/LineageOS/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
 
-SOONG_CONFIG_NAMESPACES += yaapVarsPlugin
-SOONG_CONFIG_yaapVarsPlugin :=
+SOONG_CONFIG_NAMESPACES += naapVarsPlugin
+SOONG_CONFIG_naapVarsPlugin :=
 
-SOONG_CONFIG_NAMESPACES += YAAP_CUSTOM
-SOONG_CONFIG_YAAP_CUSTOM := ZRAM_AVG_COMP
-SOONG_CONFIG_YAAP_CUSTOM_ZRAM_AVG_COMP ?= 3
+SOONG_CONFIG_NAMESPACES += NAAP_CUSTOM
+SOONG_CONFIG_NAAP_CUSTOM := ZRAM_AVG_COMP
+SOONG_CONFIG_NAAP_CUSTOM_ZRAM_AVG_COMP ?= 3
 
 SOONG_CONFIG_NAMESPACES += lineageGlobalVars
 SOONG_CONFIG_lineageGlobalVars += \
@@ -49,8 +49,8 @@ SOONG_CONFIG_lineageQcomVars += \
 endif
 
 define addVar
-    SOONG_CONFIG_yaapVarsPlugin += $(1)
-    SOONG_CONFIG_yaapVarsPlugin_$(1) := $$(subst ",\",$$($1))
+    SOONG_CONFIG_naapVarsPlugin += $(1)
+    SOONG_CONFIG_naapVarsPlugin_$(1) := $$(subst ",\",$$($1))
 endef
 
 # Set default values

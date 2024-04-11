@@ -1,7 +1,7 @@
 PRODUCT_PACKAGES += \
     ThemePicker \
 
-# Extra tools in YAAP
+# Extra tools in NAAP
 PRODUCT_PACKAGES += \
     bash \
     curl \
@@ -31,14 +31,10 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     mount.ntfs
 
-# YAAP packages
+# NAAP packages
 PRODUCT_PACKAGES += \
     Aperture \
     ExactCalculator \
-    MatLog \
-    TrichromeLibrary \
-    TrichromeWebView \
-    TrichromeChrome \
     Recorder \
     Seedvault \
     OpenDelta \
