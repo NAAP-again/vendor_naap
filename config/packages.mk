@@ -37,6 +37,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Recorder \
     Seedvault \
+    OmniJaws \
     OpenDelta \
     Ripple \
     Panic \
