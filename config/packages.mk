@@ -38,6 +38,7 @@ PRODUCT_PACKAGES += \
     Recorder \
     Seedvault \
     OmniJaws \
+    OmniStyle \
     OpenDelta \
     Ripple \
     Panic \
