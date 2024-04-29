@@ -39,7 +39,6 @@ PRODUCT_PACKAGES += \
     Seedvault \
     OmniJaws \
     OmniStyle \
-    OpenDelta \
     Ripple \
     Panic \
     BatteryStatsViewer
