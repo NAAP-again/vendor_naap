@@ -64,6 +64,11 @@ ifeq ($(TARGET_BUILD_VARIANT), user)
     PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
     # Don't include art debug targets
     PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+    # Enable whole-program R8 Java optimizations for SystemUI and system_server,
+    # but also allow explicit overriding for testing and development.
+    SYSTEM_OPTIMIZE_JAVA ?= true
+    SYSTEMUI_OPTIMIZE_JAVA ?= true
+    FULL_SYSTEM_OPTIMIZE_JAVA ?= true
 endif
 
 # Dedupe VNDK libraries with identical core variants
@@ -95,11 +100,6 @@ PRODUCT_PACKAGES += \
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
     vendor/naap/prebuilt/common/etc/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
-
-# Enable whole-program R8 Java optimizations for SystemUI and system_server,
-# but also allow explicit overriding for testing and development.
-SYSTEM_OPTIMIZE_JAVA ?= true
-SYSTEMUI_OPTIMIZE_JAVA ?= true
 
 # Product overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/naap/overlay
