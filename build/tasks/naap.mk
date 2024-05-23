@@ -5,7 +5,7 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 naap: otapackage
 	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(NAAP_TARGET_PACKAGE)
-	$(hide) $(SHA256) $(NAAP_TARGET_PACKAGE) | cut -d ' ' -f1 > $(NAAP_TARGET_PACKAGE).sha256sum
+	$(hide) $(SHA256) $(NAAP_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(NAAP_TARGET_PACKAGE).sha256
 	$(hide) ./vendor/naap/tools/generate_json_build_info.sh $(NAAP_TARGET_PACKAGE)
 	@echo -e ""
 	@echo -e "${cya}Building ${bldcya}NAAP${txtrst}";
