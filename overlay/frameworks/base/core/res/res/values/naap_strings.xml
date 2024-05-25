@@ -21,6 +21,7 @@
     <string name="cert_device">clark</string>
     <string name="cert_fp">motorola/clark_retus/clark:6.0/MPHS24.49-18-8/4:user/release-keys</string>
     <string name="cert_model">XT1575</string>
+    <string name="cert_manufacturer">motorola</string>
     <string name="cert_spl">2016-09-01</string>
     <integer name="cert_sdk">18</integer>
     <string name="build_device">barbet</string>
